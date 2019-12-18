@@ -1,0 +1,50 @@
+"---Vundle---"
+set nocompatible              " be iMproved, required
+" so ~/.vim/plugins.vim
+
+"---Splits---"
+set splitbelow
+set splitright
+
+nmap <C-J> <C-W><C-J>
+nmap <C-K> <C-W><C-K>
+nmap <C-H> <C-W><C-H>
+nmap <C-L> <C-W><C-L>
+
+"---General-Styling---"
+set number	"Show line numbers"
+set hlsearch	"Highlight the search"
+set incsearch	"Incremental highlight"
+set backspace=indent,eol,start
+let mapleader = ',' "Default leader is \ but let's use , to set a better namespace"
+
+"---Visuals---"
+syntax enable	"Enable syntax highlight"
+set t_CO=256	"Use 256 colors"
+colorscheme industry	"Use custom color scheme"
+set guifont=Fira_Code:h16
+
+"--Indents---"
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab	"Use spaces instead of tabs"
+
+"---Mappings---"
+"Map vimrc to a command"
+nmap <Leader>ev :tabedit ~/.vimrc<cr>
+"Remove search highlight"
+nmap <Leader><space> :nohlsearch<cr>
+"Better NerdTreeToggle"
+nmap <Leader>1 :NERDTreeToggle<cr>
+
+"---Plugins---"
+let NERDTreeHijackNetrw = 0
+
+"---Auto-commands---"
+
+"Source vimrc on save automatically"
+augroup autosourcing
+	autocmd!
+	autocmd BufWritePost .vimrc source %
+augroup END
